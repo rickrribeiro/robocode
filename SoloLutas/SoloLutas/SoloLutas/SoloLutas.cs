@@ -26,13 +26,14 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
             while (true)
             {
-                
-                Ahead(150);
-                for (int i = 0; i < 60; i++){
-                    TurnGunLeft(gunTurn);
-                }
                 TurnRight(35);
-                TurnGunLeft(35);
+                Ahead(150);
+                //for (int i = 0; i < 60; i++){
+                //    TurnGunLeft(gunTurn);
+                //}
+                TurnGunLeftRadians(Math.PI*2);
+               
+            
             }
         }
        
@@ -47,14 +48,16 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
            
             
         }
-
+        
+        /*
         public override void OnHitByBullet(HitByBulletEvent evnt)
         {
             base.OnHitByBullet(evnt);
-            Ahead(100);
             TurnRight(75);
-            TurnGunLeft(75);
+            Ahead(100);
+            TurnGunLeftRadians(Math.PI * 2);
         }
+        */
 
         public override void OnHitWall(HitWallEvent evnt)
         {
