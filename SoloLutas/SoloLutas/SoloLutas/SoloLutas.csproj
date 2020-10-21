@@ -1,7 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>sunre.sololutas_1.0</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="robocode">
+      <HintPath>..\..\..\..\..\..\..\..\robocode\libs\robocode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
