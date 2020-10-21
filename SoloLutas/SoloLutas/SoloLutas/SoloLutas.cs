@@ -10,18 +10,20 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 {
     class SoloLutas : AdvancedRobot
     {
+        int move = 1;
         bool isShooting = false;
+        int victory = 2;
         public override void Run()
         {
-            BodyColor = Color.FromArgb(70, 77, 105);// Color.Red;
-            GunColor = Color.FromArgb(70, 77, 105); //Color.Blue;
-            RadarColor = Color.FromArgb(70, 77, 105);// Color.White;
+            BodyColor = Color.Red; // Color.FromArgb(70, 77, 105);// 
+            GunColor = Color.Blue;// Color.FromArgb(70, 77, 105); //
+            RadarColor = Color.White;// Color.FromArgb(70, 77, 105);// 
             BulletColor = Color.Red; //Color.FromArgb(70,77,105);
 
             //   BulletColor = Color.Red;
+
            
             
-
             int gunTurn = 3;
             int robotTurn = 3;
 
@@ -35,9 +37,23 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
                 //    TurnGunLeft(gunTurn);
                 //}
 
-
+                if (victory <= 0)
+                {
+                    victory = 2;
+                    move++;
+                }
                 //   TurnGunLeftRadians(Math.PI*2);
-                move1();
+                if (move == 1 || move == 4 || move == 7 || move == 10)
+                {
+                    move1();
+                }else if (move == 2 || move == 5 || move == 8)
+                {
+                    move2();
+                }else if (move == 3 || move == 6 || move == 9)
+                {
+                    move3();
+                }
+               
             
             }
         }
@@ -58,6 +74,14 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             MaxVelocity = 5;
             SetTurnRight(10000);
             Ahead(10000);
+            for (int i = 0; i < 4; i++)
+            {
+                TurnGunLeftRadians(Math.PI / 2);
+            }
+        }
+
+        public void move3()
+        {
             for (int i = 0; i < 4; i++)
             {
                 TurnGunLeftRadians(Math.PI / 2);
@@ -90,10 +114,25 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
         public override void OnHitWall(HitWallEvent evnt)
         {
             base.OnHitWall(evnt);
-          //  TurnRight(75);
+            
+                Back(70);
+                TurnRight(90);
+            
+            
         }
-        
 
-
+        public override void OnWin(WinEvent evnt)
+        {
+            base.OnWin(evnt);
+            victory++;
         }
+
+        public override void OnDeath(DeathEvent evnt)
+        {
+            base.OnDeath(evnt);
+            victory--;
+        }
+    }
+
+    
 }
