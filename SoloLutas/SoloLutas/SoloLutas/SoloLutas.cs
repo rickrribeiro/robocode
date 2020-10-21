@@ -13,40 +13,46 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
         bool isShooting = false;
         public override void Run()
         {
-            BodyColor = Color.Red;
-            GunColor = Color.Blue;
-            RadarColor = Color.White;
-            //   BulletColor = Color.FromArgb(70,77,105);
-            BulletColor = Color.Red;
+            BodyColor = Color.FromArgb(70, 77, 105);// Color.Red;
+            GunColor = Color.FromArgb(70, 77, 105); //Color.Blue;
+            RadarColor = Color.FromArgb(70, 77, 105);// Color.White;
+              BulletColor = Color.FromArgb(70,77,105);
+            SetAllColors(Color.FromArgb(70, 77, 105));
+         //   BulletColor = Color.Red;
             MaxVelocity = Rules.MAX_VELOCITY;
-
+            
 
             int gunTurn = 3;
             int robotTurn = 3;
 
             while (true)
             {
-                TurnRight(35);
-                Ahead(150);
+                SetTurnRight(10000);
+                //TurnRight(35);
+                Ahead(10000);
                 //for (int i = 0; i < 60; i++){
                 //    TurnGunLeft(gunTurn);
                 //}
-                TurnGunLeftRadians(Math.PI*2);
+                for(int i = 0; i < 4; i++)
+                {
+                    TurnGunLeftRadians(Math.PI / 2);
+                }
+             //   TurnGunLeftRadians(Math.PI*2);
                
             
             }
         }
-       
+        int count = 0;
         public override void OnScannedRobot(ScannedRobotEvent e)
         {
-       
 
-                Stop();     
+           
+                Stop();
                 Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
                 Scan();
                 Resume();
-           
-            
+          
+               
         }
         
         /*
@@ -64,8 +70,8 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             base.OnHitWall(evnt);
             TurnRight(75);
         }
+        
 
-     
 
-    }
+        }
 }
