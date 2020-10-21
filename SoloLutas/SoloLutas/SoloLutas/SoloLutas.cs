@@ -7,17 +7,24 @@ using Robocode;
 
 namespace sololutas //SOL = sun   ULT= R   IS= é
 {
-    class SoloLutas : Robot
+    class SoloLutas : AdvancedRobot
     {
       
         public override void Run()
         {
-            TurnLeft(Heading - 90);
-            TurnGunRight(90);
+            
             while (true)
             {
-                Ahead(5000);
-                TurnRight(90);
+           //     Fire(Rules.MAX_BULLET_POWER);
+           for(int i = 0; i < 2; i++)
+                {
+                    Ahead(150);
+                    TurnGunRight(30);
+                }
+               
+                 TurnRight(35);
+
+
             }
         }
         public override void OnScannedRobot(ScannedRobotEvent e)
