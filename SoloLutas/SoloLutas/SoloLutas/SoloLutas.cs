@@ -16,10 +16,10 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             BodyColor = Color.FromArgb(70, 77, 105);// Color.Red;
             GunColor = Color.FromArgb(70, 77, 105); //Color.Blue;
             RadarColor = Color.FromArgb(70, 77, 105);// Color.White;
-              BulletColor = Color.FromArgb(70,77,105);
-            SetAllColors(Color.FromArgb(70, 77, 105));
-         //   BulletColor = Color.Red;
-            MaxVelocity = Rules.MAX_VELOCITY;
+            BulletColor = Color.Red; //Color.FromArgb(70,77,105);
+
+            //   BulletColor = Color.Red;
+            MaxVelocity = 6; //Rules.MAX_VELOCITY;
             
 
             int gunTurn = 3;
@@ -42,7 +42,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             
             }
         }
-        int count = 0;
+
         public override void OnScannedRobot(ScannedRobotEvent e)
         {
 
@@ -68,7 +68,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
         public override void OnHitWall(HitWallEvent evnt)
         {
             base.OnHitWall(evnt);
-            TurnRight(75);
+           // TurnRight(75);
         }
         
 
