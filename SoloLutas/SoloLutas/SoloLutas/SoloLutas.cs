@@ -19,7 +19,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             BulletColor = Color.Red; //Color.FromArgb(70,77,105);
 
             //   BulletColor = Color.Red;
-            MaxVelocity = 6; //Rules.MAX_VELOCITY;
+            MaxVelocity = Rules.MAX_VELOCITY;
             
 
             int gunTurn = 3;
@@ -27,13 +27,15 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
             while (true)
             {
+                /*
                 SetTurnRight(10000);
-                //TurnRight(35);
-                Ahead(10000);
+                Ahead(10000); */
+                TurnRight(35);
+                Ahead(150);
                 //for (int i = 0; i < 60; i++){
                 //    TurnGunLeft(gunTurn);
                 //}
-                for(int i = 0; i < 4; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     TurnGunLeftRadians(Math.PI / 2);
                 }
@@ -68,7 +70,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
         public override void OnHitWall(HitWallEvent evnt)
         {
             base.OnHitWall(evnt);
-           // TurnRight(75);
+            TurnRight(75);
         }
         
 
