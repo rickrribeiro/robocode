@@ -19,7 +19,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             BulletColor = Color.Red; //Color.FromArgb(70,77,105);
 
             //   BulletColor = Color.Red;
-            MaxVelocity = Rules.MAX_VELOCITY;
+           
             
 
             int gunTurn = 3;
@@ -30,18 +30,37 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
                 /*
                 SetTurnRight(10000);
                 Ahead(10000); */
-                TurnRight(35);
-                Ahead(150);
+
                 //for (int i = 0; i < 60; i++){
                 //    TurnGunLeft(gunTurn);
                 //}
-                for (int i = 0; i < 4; i++)
-                {
-                    TurnGunLeftRadians(Math.PI / 2);
-                }
-             //   TurnGunLeftRadians(Math.PI*2);
-               
+
+
+                //   TurnGunLeftRadians(Math.PI*2);
+                move1();
             
+            }
+        }
+
+        public void move1()
+        {
+            MaxVelocity = Rules.MAX_VELOCITY;
+            TurnRight(35);
+            Ahead(150);
+            for (int i = 0; i < 4; i++)
+            {
+                TurnGunLeftRadians(Math.PI / 2);
+            }
+        }
+
+        public void move2()
+        {
+            MaxVelocity = 5;
+            SetTurnRight(10000);
+            Ahead(10000);
+            for (int i = 0; i < 4; i++)
+            {
+                TurnGunLeftRadians(Math.PI / 2);
             }
         }
 
@@ -50,27 +69,28 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
            
                 Stop();
-                Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
-                Scan();
+            //  Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
+            Fire(4);
+               Scan();
                 Resume();
           
                
         }
         
-        /*
+        
         public override void OnHitByBullet(HitByBulletEvent evnt)
         {
             base.OnHitByBullet(evnt);
-            TurnRight(75);
+            TurnRight(15);
             Ahead(100);
-            TurnGunLeftRadians(Math.PI * 2);
+          
         }
-        */
+        
 
         public override void OnHitWall(HitWallEvent evnt)
         {
             base.OnHitWall(evnt);
-            TurnRight(75);
+          //  TurnRight(75);
         }
         
 
