@@ -10,7 +10,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 {
     class SoloLutas : AdvancedRobot
     {
-        int move = 1;
+        int move = 3;
         bool isShooting = false;
         int victory = 2;
         public override void Run()
@@ -82,6 +82,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
         public void move3()
         {
+            Ahead(40);
             for (int i = 0; i < 4; i++)
             {
                 TurnGunLeftRadians(Math.PI / 2);
@@ -93,9 +94,11 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
            
                 Stop();
-                 Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
+             Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
+           // Fire(2);
+    
           
-               Scan();
+            Scan();
                 Resume();
           
                
@@ -105,8 +108,8 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
         public override void OnHitByBullet(HitByBulletEvent evnt)
         {
             base.OnHitByBullet(evnt);
-            TurnRight(15);
-            Ahead(100);
+          //  TurnRight(15);
+            Ahead(40);
           
         }
         
@@ -114,10 +117,18 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
         public override void OnHitWall(HitWallEvent evnt)
         {
             base.OnHitWall(evnt);
-            
-                Back(70);
+            if (move == 2)
+            {
                 TurnRight(90);
                 Ahead(70);
+            }
+            else if(move==1 || move==3)
+            {
+                TurnRight(180);
+                Ahead(70);
+            }
+            
+                
             
         }
 
