@@ -10,7 +10,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 {
     class SoloLutas : AdvancedRobot
     {
-        int move = 3;
+        int move = 11;
         bool isShooting = false;
         int victory = 2;
         public override void Run()
@@ -22,8 +22,8 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
             //   BulletColor = Color.Red;
 
-           
-            
+
+
             int gunTurn = 3;
             int robotTurn = 3;
 
@@ -46,15 +46,21 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
                 if (move == 1 || move == 4 || move == 7 || move == 10)
                 {
                     move1();
-                }else if (move == 2 || move == 5 || move == 8)
+                }
+                else if (move == 2 || move == 5 || move == 8)
                 {
-                    move2   ();
-                }else if (move == 3 || move == 6 || move == 9)
+                    move2();
+                }
+                else if (move == 3 || move == 6 || move == 9)
                 {
                     move3();
+                } else if (move == 11)
+                {
+                    move4();
                 }
-               
-            
+                
+
+
             }
         }
 
@@ -89,30 +95,40 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             }
         }
 
+        public void move4()
+        {
+            Ahead(130); //Go ahead 100 pixels
+            TurnGunRight(360); //scan
+            Back(75); //Go back 75 pixels
+            TurnGunRight(360); //scan
+        }
+
         public override void OnScannedRobot(ScannedRobotEvent e)
         {
 
+
+
+        //    Stop();
+
+            Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
+                                          // Fire(2);
            
-                Stop();
-             Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
-           // Fire(2);
-    
-          
+
             Scan();
-                Resume();
+          //  Resume();
           
-               
+
         }
-        
-        
+
+
         public override void OnHitByBullet(HitByBulletEvent evnt)
         {
             base.OnHitByBullet(evnt);
-          //  TurnRight(15);
-            Ahead(40);
-          
+            //  TurnRight(15);
+            //Ahead(40);
+
         }
-        
+
 
         public override void OnHitWall(HitWallEvent evnt)
         {
@@ -122,14 +138,20 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
                 TurnRight(90);
                 Ahead(70);
             }
-            else if(move==1 || move==3)
+            else if (move == 1 || move == 3)
             {
                 TurnRight(180);
                 Ahead(70);
             }
-            
-                
-            
+           else if (move == 11)
+            {
+                double bearing = evnt.Bearing; //get the bearing of the wall
+                TurnRight(-bearing); //This isn't accurate but release your robot.
+                Ahead(100);
+            }
+
+
+
         }
 
         public override void OnWin(WinEvent evnt)
@@ -145,5 +167,5 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
         }
     }
 
-    
+
 }
