@@ -97,10 +97,10 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
         public void move4()
         {
-            Ahead(140); //Go ahead 100 pixels
-            TurnGunRight(360); //scan
-            Back(100); //Go back 75 pixels
-            TurnGunRight(360); //scan
+            Ahead(140); 
+            TurnGunRight(360);
+            Back(100);
+            TurnGunRight(360); 
         }
 
         public override void OnScannedRobot(ScannedRobotEvent e)
