@@ -48,7 +48,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
                     move1();
                 }else if (move == 2 || move == 5 || move == 8)
                 {
-                    move2();
+                    move2   ();
                 }else if (move == 3 || move == 6 || move == 9)
                 {
                     move3();
@@ -93,8 +93,8 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
            
                 Stop();
-            //  Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
-            Fire(4);
+                 Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
+          
                Scan();
                 Resume();
           
@@ -117,7 +117,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             
                 Back(70);
                 TurnRight(90);
-            
+                Ahead(70);
             
         }
 
