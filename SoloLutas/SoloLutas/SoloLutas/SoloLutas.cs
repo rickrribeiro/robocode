@@ -18,7 +18,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             BodyColor = Color.Red; // Color.FromArgb(70, 77, 105);// 
             GunColor = Color.Blue;// Color.FromArgb(70, 77, 105); //
             RadarColor = Color.White;// Color.FromArgb(70, 77, 105);// 
-            BulletColor = Color.Red; //Color.FromArgb(70,77,105);
+            BulletColor = Color.FromArgb(70,77,105); //Color.Red; 
 
             //   BulletColor = Color.Red;
 
@@ -39,8 +39,8 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
                 if (victory <= 0)
                 {
-                    victory = 2;
-                    move++;
+                  //  victory = 2;
+                  //  move++;
                 }
                 //   TurnGunLeftRadians(Math.PI*2);
                 if (move == 1 || move == 4 || move == 7 || move == 10)
@@ -97,9 +97,9 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
         public void move4()
         {
-            Ahead(130); //Go ahead 100 pixels
+            Ahead(140); //Go ahead 100 pixels
             TurnGunRight(360); //scan
-            Back(75); //Go back 75 pixels
+            Back(100); //Go back 75 pixels
             TurnGunRight(360); //scan
         }
 
