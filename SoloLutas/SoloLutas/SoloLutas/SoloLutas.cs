@@ -108,14 +108,14 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
 
 
-        //    Stop();
+            Stop();
 
             Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
                                           // Fire(2);
            
 
             Scan();
-          //  Resume();
+            Resume();
           
 
         }
