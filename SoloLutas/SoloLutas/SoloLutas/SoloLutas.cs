@@ -20,7 +20,7 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
             RadarColor = Color.White;// Color.FromArgb(70, 77, 105);// 
             BulletColor = Color.FromArgb(70,77,105); //Color.Red; 
 
-            //   BulletColor = Color.Red;
+              // BulletColor = Color.Red;
 
 
 
@@ -109,8 +109,11 @@ namespace sololutas //SOL = sun   ULT= R   IS= é
 
 
             Stop();
-
-            Fire(Rules.MAX_BULLET_POWER); // lembrar de ver todos os maximos que apareceram (velocidade...)
+            if (Energy > Rules.MAX_BULLET_POWER)
+            {
+                Fire(Rules.MAX_BULLET_POWER);
+            }
+            // lembrar de ver todos os maximos que apareceram (velocidade...)
                                           // Fire(2);
            
 
